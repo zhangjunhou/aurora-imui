@@ -59,7 +59,7 @@ class IMUIRecordVoiceCell: UICollectionViewCell, IMUIFeatureCellProtocol {
   }
 
   func layoutPermissionView() {
-    self.permissionDenyedView.type = "录音"
+    self.permissionDenyedView.type = "Recording"
     switch AVAudioSession.sharedInstance().recordPermission() {
     case .granted:
       self.permissionDenyedView.isHidden = true
@@ -88,12 +88,11 @@ class IMUIRecordVoiceCell: UICollectionViewCell, IMUIFeatureCellProtocol {
   }
   
   @IBAction func startRecordVoice(_ sender: Any) {
-
     switch AVAudioSession.sharedInstance().recordPermission() {
       case AVAudioSessionRecordPermission.granted:
         self.swtichToPlayModeBtn.isHidden = false
         self.cancelVoiceBtn.isHidden = false
-        
+        self.featureDelegate?.startRecordVoice()
         UIView.animate(withDuration: 0.2) {
           self.contentView.layoutIfNeeded()
         }
@@ -150,7 +149,7 @@ class IMUIRecordVoiceCell: UICollectionViewCell, IMUIFeatureCellProtocol {
     self.sendVoiceBtn.isHidden = true
     self.playVoiceBtn.isHidden = true
     self.playVoiceBtn.progress = 0
-    self.timeLable.text = "按住说话"
+    self.timeLable.text = "Hold to talk"
   }
 
   // -MARK: Play Voice
@@ -166,6 +165,7 @@ class IMUIRecordVoiceCell: UICollectionViewCell, IMUIFeatureCellProtocol {
   @IBAction func cancelPlayVoice(_ sender: Any) {
     recordHelper.stopRecord()
     recordHelper.cancelledDeleteWithCompletion()
+    self.featureDelegate?.cancelRecordVoice()
     self.resetSubViewsStyle()
   }
   
@@ -246,11 +246,13 @@ class IMUIRecordVoiceCell: UICollectionViewCell, IMUIFeatureCellProtocol {
       if self.cancelVoiceBtn.isSelected {
         self.recordHelper.cancelRecording()
         self.resetSubViewsStyle()
+        self.featureDelegate?.cancelRecordVoice()
         return
       }
       
       if self.swtichToPlayModeBtn.isSelected {
         self.switchToPlayVoiceModel()
+        self.featureDelegate?.playToPlayRecord()
         self.finishiRecorderCache = recordHelper.finishRecordingCompletion()
         return
       }

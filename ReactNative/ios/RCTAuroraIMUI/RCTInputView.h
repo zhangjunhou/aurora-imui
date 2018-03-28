@@ -32,6 +32,7 @@
 @property (nonatomic, copy) RCTBubblingEventBlock onStartRecordVoice;
 @property (nonatomic, copy) RCTBubblingEventBlock onFinishRecordVoice;
 @property (nonatomic, copy) RCTBubblingEventBlock onCancelRecordVoice;
+@property (nonatomic, copy) RCTBubblingEventBlock onPlayRecordVoice;
 
 @property (nonatomic, copy) RCTBubblingEventBlock onStartRecordVideo;
 @property (nonatomic, copy) RCTBubblingEventBlock onFinishRecordVideo;
@@ -41,6 +42,7 @@
 @property (nonatomic, copy) RCTBubblingEventBlock onSwitchToGalleryMode;
 @property (nonatomic, copy) RCTBubblingEventBlock onSwitchToCameraMode;
 @property (nonatomic, copy) RCTBubblingEventBlock onSwitchToEmojiMode;
+@property (nonatomic, copy) RCTBubblingEventBlock onSwitchToPlayRecord;
 
 @property (nonatomic, copy) RCTBubblingEventBlock onShowKeyboard;
 

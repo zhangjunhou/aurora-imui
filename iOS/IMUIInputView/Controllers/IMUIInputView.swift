@@ -289,6 +289,17 @@ extension IMUIInputView: IMUIFeatureViewDelegate {
     self.inputViewDelegate?.cameraFullScreen?()
   }
   
+  public func cancelRecordVoice() {
+    self.inputViewDelegate?.cancelRecordVoice?()
+  }
+
+  public func playToPlayRecord() {
+    self.inputViewDelegate?.playToPlayRecord?()
+  }
+    
+  public func startRecordVoice() {
+    self.inputViewDelegate?.startRecordVoice?()
+  }
   
   public func didChangeSelectedGallery(with gallerys: [PHAsset]) {
       self.updateSendBtnToPhotoSendStatus()

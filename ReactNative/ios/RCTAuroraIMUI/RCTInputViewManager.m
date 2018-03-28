@@ -31,6 +31,7 @@ RCT_EXPORT_VIEW_PROPERTY(onTakePicture, RCTBubblingEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onStartRecordVoice, RCTBubblingEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onCancelRecordVoice, RCTBubblingEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onFinishRecordVoice, RCTBubblingEventBlock)
+RCT_EXPORT_VIEW_PROPERTY(onPlayRecordVoice, RCTBubblingEventBlock)
 
 RCT_EXPORT_VIEW_PROPERTY(onStartRecordVideo, RCTBubblingEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onFinishRecordVideo, RCTBubblingEventBlock)
@@ -40,6 +41,7 @@ RCT_EXPORT_VIEW_PROPERTY(onSwitchToMicrophoneMode, RCTBubblingEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onSwitchToGalleryMode, RCTBubblingEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onSwitchToCameraMode, RCTBubblingEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(onSwitchToEmojiMode, RCTBubblingEventBlock)
+
 
 RCT_EXPORT_VIEW_PROPERTY(onShowKeyboard, RCTBubblingEventBlock)
 
@@ -138,6 +140,13 @@ RCT_CUSTOM_VIEW_PROPERTY(compressionQuality, NSNumber, RCTInputView) {
   if(!_rctInputView.onCancelRecordVoice) { return; }
   _rctInputView.onCancelRecordVoice(@{});
 }
+
+/// Tells the delegate that user play record
+- (void)playToPlayRecord {
+  if(!_rctInputView.onPlayRecordVoice) { return; }
+  _rctInputView.onPlayRecordVoice(@{});
+}
+
 
 /// Tells the delegate that IMUIInputView will switch to gallery
 - (void)switchToGalleryModeWithPhotoBtn:(UIButton * _Nonnull)photoBtn {

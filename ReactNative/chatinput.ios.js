@@ -26,6 +26,7 @@ export default class ChatInput extends Component {
     this._onStartRecordVoice = this._onStartRecordVoice.bind(this);
     this._onFinishRecordVoice = this._onFinishRecordVoice.bind(this);
     this._onCancelRecordVoice = this._onCancelRecordVoice.bind(this);
+    this._onPlayRecordVoice = this._onPlayRecordVoice.bind(this);
     this._onSwitchToMicrophoneMode = this._onSwitchToMicrophoneMode.bind(this);
     this._onSwitchToEmojiMode = this._onSwitchToEmojiMode.bind(this);
     this._onSwitchGalleryMode = this._onSwitchGalleryMode.bind(this);
@@ -90,6 +91,13 @@ export default class ChatInput extends Component {
       return;
     }
     this.props.onCancelRecordVoice();
+  }
+
+  _onPlayRecordVoice() {
+    if (!this.props.onPlayRecordVoice) {
+      return;
+    }
+    this.props.onPlayRecordVoice();
   }
 
   _onSwitchToMicrophoneMode() {
@@ -162,6 +170,7 @@ export default class ChatInput extends Component {
           onStartRecordVoice={this._onStartRecordVoice}
           onFinishRecordVoice={this._onFinishRecordVoice}
           onCancelRecordVoice={this._onCancelRecordVoice}
+          onPlayRecordVoice={this._onPlayRecordVoice}
           onSwitchToMicrophoneMode={this._onSwitchToMicrophoneMode}
           onSwitchToEmojiMode={this._onSwitchToEmojiMode}
           onSwitchToGalleryMode={this._onSwitchGalleryMode}
@@ -187,6 +196,7 @@ ChatInput.propTypes = {
   onStartRecordVoice: PropTypes.func,
   onFinishRecordVoice: PropTypes.func,
   onCancelRecordVoice: PropTypes.func,
+  onPlayRecordVoice: PropTypes.func,
   onSwitchToMicrophoneMode: PropTypes.func,
   onSwitchToEmojiMode: PropTypes.func,
   onSwitchToGalleryMode: PropTypes.func,

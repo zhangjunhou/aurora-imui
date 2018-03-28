@@ -39,6 +39,11 @@ import Photos
    *  Tells the delegate that user cancel record
    */
   @objc optional func cancelRecordVoice()
+
+   /**
+   *  Tells the delegate that user play record
+   */
+  @objc optional func playToPlayRecord()
   
   /**
    *  Tells the delegate that IMUIInputView will switch to gallery
@@ -101,27 +106,3 @@ import Photos
   @objc optional func cameraRecoverScreen()
 }
 
-
-//public extension IMUIInputViewDelegate {
-//  func sendTextMessage(_ messageText: String) {}
-//
-//  func switchToMicrophoneMode(recordVoiceBtn: UIButton) {}
-//  
-//  func startRecordVoice() {}
-//  
-//  func finishRecordVoice(_ voicePath: String, durationTime: Double) {}
-//  
-//  func cancelRecordVoice() {}
-//  
-//  func switchToGalleryMode(photoBtn: UIButton) {}
-//  
-//  func didSeletedGallery(AssetArr: [PHAsset]) {}
-//  
-//  func switchToCameraMode(cameraBtn: UIButton) {}
-//  
-//  func didShootPicture(picture: Data) {}
-//  
-//  func startRecordVideo() {}
-//  
-//  func finishRecordVideo(videoPath: String, durationTime: Double) {}
-//}

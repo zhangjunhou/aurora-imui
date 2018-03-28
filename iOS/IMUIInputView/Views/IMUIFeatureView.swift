@@ -31,6 +31,9 @@ public protocol IMUIFeatureViewDelegate: NSObjectProtocol {
   func didChangeSelectedGallery(with gallerys: [PHAsset])
   func cameraFullScreen()
   func cameraRecoverScreen()
+  func cancelRecordVoice()
+  func startRecordVoice()
+  func playToPlayRecord()
 }
 
 public extension IMUIFeatureViewDelegate {
@@ -42,6 +45,9 @@ public extension IMUIFeatureViewDelegate {
   func didChangeSelectedGallery() {}
   func cameraFullScreen() {}
   func cameraRecoverScreen() {}
+  func cancelRecordVoice() {}
+  func startRecordVoice() {}
+  func playToPlayRecord() {}
 }
 
 public protocol IMUIFeatureCellProtocol {
